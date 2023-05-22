@@ -1,3 +1,4 @@
+//employee.js
 import React from 'react';
 
 const Employee = ({ employee }) => {

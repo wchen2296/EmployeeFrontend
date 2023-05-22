@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+// EmployeeList.js
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchEmployees } from '../redux/actions';
 import Employee from './Employee';
 
-const EmployeeList = () => {
-  const [employees, setEmployees] = useState([]);
-
+const EmployeeList = ({ dispatch, employees }) => {
   useEffect(() => {
-    fetch('http://localhost:3001/api/employees')  
-      .then(response => response.json())
-      .then(data => setEmployees(data));
-  }, []);
+    dispatch(fetchEmployees());
+  }, [dispatch]);
 
-  if (employees.length === 0) {
+  if (!employees || employees.length === 0) {
     return <p>No employees exist</p>;
   }
 
@@ -24,4 +23,10 @@ const EmployeeList = () => {
   );
 };
 
-export default EmployeeList;
+const mapStateToProps = (state) => {
+  return {
+    employees: state.employees,
+  };
+};
+
+export default connect(mapStateToProps)(EmployeeList);
