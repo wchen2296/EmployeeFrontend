@@ -5,6 +5,7 @@ import { fetchEmployees } from '../redux/actions';
 import Employee from './Employee';
 import DeleteEmployee from './DeleteEmployee';
 import { Link } from 'react-router-dom';
+import './ListStyle.css';
 
 const EmployeeList = ({ dispatch, employees }) => {
   useEffect(() => {
@@ -16,18 +17,19 @@ const EmployeeList = ({ dispatch, employees }) => {
   }
 
   return (
-    <div>
-      <h1>Employees</h1>
-      {employees.map(employee => (
-        <div key={employee.id}>
-           
-          <Employee employee={employee} />
-          <DeleteEmployee id={employee.id} />
-          <Link to={`/employees/${employee.id}`}>
-            View Details
-          </Link>
-        </div>
-      ))}
+    <div className="list-container">
+      <h1 className="list-title">Employees</h1>
+      <div className="list-grid">
+        {employees.map((employee) => (
+          <div key={employee.id} className="list-item">
+            <Employee employee={employee} />
+            <Link to={`/employees/${employee.id}`}>
+              <button className="details-button">View Details</button>
+            </Link>
+            <DeleteEmployee id={employee.id} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

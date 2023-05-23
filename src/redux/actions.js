@@ -61,14 +61,28 @@ export function createEmployee(employee) {
     };
   };
 //delete employee
-  export function deleteEmployee(id) {
-    return async dispatch => {
-      await fetch(`http://localhost:3001/employees/${id}`, {
+export function deleteEmployee(id) {
+  return async dispatch => {
+    try {
+      const response = await fetch(`http://localhost:3001/employees/${id}`, {
         method: 'DELETE',
       });
+      
+      if (!response.ok) {
+        if (response.status === 400) {
+          throw new Error('Cannot delete employee with assigned tasks.');
+        } else {
+          throw new Error(`Delete request failed with status code ${response.status}`);
+        }
+      }
+
       dispatch({ type: 'DELETE_EMPLOYEE', payload: id });
-    };
-  }
+    } catch (error) {
+      throw error;
+    }
+  };
+}
+
   
   //fetch all tasks
   export const fetchTasks = () => {

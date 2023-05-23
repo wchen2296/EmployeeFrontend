@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateEmployee } from '../redux/actions';
 
@@ -14,9 +14,17 @@ const EditEmployeeForm = ({ employee }) => {
   // real-time validation
   const [errors, setErrors] = useState({});
 
+  const validateForm = useCallback(() => {
+    let tempErrors = {};
+    if (!firstName.trim()) tempErrors.firstName = 'First name is required';
+    if (!lastName.trim()) tempErrors.lastName = 'Last name is required';
+    if (!department.trim()) tempErrors.department = 'Department is required';
+    setErrors(tempErrors);
+  }, [firstName, lastName, department]); // dependencies for validateForm
+
   useEffect(() => {
     validateForm();
-  }, [firstName, lastName, department]);
+  }, [validateForm]); // dependency is validateForm
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -45,13 +53,6 @@ const EditEmployeeForm = ({ employee }) => {
     setTasks(tasks.filter((task) => task !== taskToRemove));
   };
 
-  const validateForm = () => {
-    let tempErrors = {};
-    if (!firstName.trim()) tempErrors.firstName = 'First name is required';
-    if (!lastName.trim()) tempErrors.lastName = 'Last name is required';
-    if (!department.trim()) tempErrors.department = 'Department is required';
-    setErrors(tempErrors);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchEmployee } from '../redux/actions';
 import { useParams } from 'react-router-dom';
+import './DetailsStyle.css';
 
 
 const EmployeeDetails = () => {
   const dispatch = useDispatch();
   const { employeeId } = useParams();
    console.log('employeeId:', employeeId); 
-   const employee = useSelector((state) => state.employee);
+  const employee = useSelector((state) => state.employee);
 
 
   
@@ -25,26 +26,29 @@ const EmployeeDetails = () => {
   
 
  
-  return (
+   return (
     loading || !employee ? <p>Loading...</p> : 
-      <div>
-        <h2>{employee.firstName} {employee.lastName}</h2>
-        <p>{employee.department}</p>
-        {/* Add a list component to show employee's tasks if any */}
-        {employee.tasks && employee.tasks.length > 0 ? (
-          <div>
-            <h3>Tasks:</h3>
-            {employee.tasks.map((task) => (
-              <p key={task.id}>{task.description}</p>
-            ))}
-          </div>
-        ) : (
-          <p>No tasks are assigned to this employee.</p>
-        )}
-      
+    <div class="card-container">
+      <div className='card'>
+        <div className='card-content'>
+          <h2 className='card-title'>{employee.firstName} {employee.lastName}</h2>
+          <p className='card-text'>Employee ID: {employee.id}</p>
+          <p className='card-text'>Department: {employee.department}</p>
+          {/* Add a list component to show employee's tasks if any */}
+          {employee.tasks && employee.tasks.length > 0 ? (
+            <div className='card-task-list'>
+              <h3 className='card-subtitle'>Tasks:</h3>
+              {employee.tasks.map((task) => (
+                <p key={task.id} className='card-task'>{task.description}</p>
+              ))}
+            </div>
+          ) : (
+            <p className='card-text'>No tasks are assigned to this employee.</p>
+          )}
+        </div>
+      </div>
       </div>
     );
-  
 };
 
 export default EmployeeDetails;

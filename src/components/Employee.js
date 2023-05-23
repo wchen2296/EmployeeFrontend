@@ -5,7 +5,8 @@ const Employee = ({ employee }) => {
   return (
     <div>
       <h2>{employee.firstName} {employee.lastName}</h2>
-      <p>{employee.department}</p>
+      <p>Department: {employee.department}</p>
+      <p>Id: {employee.id}</p>
     </div>
   );
 };

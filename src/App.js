@@ -13,6 +13,7 @@ import EditTask from './components/EditTask';
 import Navigation from './components/Navigation';
 import TaskList from './components/TaskList';
 
+
 const App = () => {
   return (
     <Provider store={store}>
@@ -28,7 +29,7 @@ const App = () => {
             <Route path="/tasks/new" element={<CreateTask />} />
             <Route path="/tasks/edit/:id" element={<EditTask />} />
             <Route path="/tasks/:id" element={<TaskDetails />} />
-            {/* add more routes as needed */}
+            
           </Routes>
         </div>
       </Router>
