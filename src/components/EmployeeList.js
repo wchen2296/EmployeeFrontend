@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchEmployees } from '../redux/actions';
 import Employee from './Employee';
+import DeleteEmployee from './DeleteEmployee';
+import { Link } from 'react-router-dom';
 
 const EmployeeList = ({ dispatch, employees }) => {
   useEffect(() => {
@@ -17,7 +19,14 @@ const EmployeeList = ({ dispatch, employees }) => {
     <div>
       <h1>Employees</h1>
       {employees.map(employee => (
-        <Employee key={employee.id} employee={employee} />
+        <div key={employee.id}>
+           
+          <Employee employee={employee} />
+          <DeleteEmployee id={employee.id} />
+          <Link to={`/employees/${employee.id}`}>
+            View Details
+          </Link>
+        </div>
       ))}
     </div>
   );
