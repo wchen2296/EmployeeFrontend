@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link as RouterLink } from 'react-router-dom';
 import { fetchTask } from '../redux/actions'; // Import the action
 import './DetailsStyle.css';
+import { Button } from '@mui/material';
 
 const TaskDetails = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ const TaskDetails = () => {
   return (
     !task ? <p>Loading...</p> :
     <div class="card-container">
+      <Button className='back-btn' component={RouterLink} to="/tasks">
+          Back
+        </Button>
       <div className='card'>
         <div className='card-content'>
           <h1 className='card-title'>{task.description}</h1>

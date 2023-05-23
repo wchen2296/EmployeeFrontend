@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchEmployee } from '../redux/actions';
-import { useParams } from 'react-router-dom';
+import { useParams, Link as RouterLink  } from 'react-router-dom';
 import './DetailsStyle.css';
+import { Button } from '@mui/material';
 
 
 const EmployeeDetails = () => {
@@ -28,7 +29,11 @@ const EmployeeDetails = () => {
  
    return (
     loading || !employee ? <p>Loading...</p> : 
+    
     <div class="card-container">
+     <Button className='back-btn' component={RouterLink} to="/employees">
+          Back
+        </Button>
       <div className='card'>
         <div className='card-content'>
           <h2 className='card-title'>{employee.firstName} {employee.lastName}</h2>
