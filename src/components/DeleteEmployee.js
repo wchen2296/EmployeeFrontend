@@ -11,13 +11,13 @@ const DeleteEmployee = ({ id }) => {
     try {
       await dispatch(deleteEmployee(id));
     } catch (err) {
-      setError('Cannot delete employee with assigned tasks.');
+      setError('Cannot delete employee with assigned tasks! Reassign or delete ALL associated tasks to delete.');
     }
   };
 
   return (
     <div>
-      <button className="delete-button" onClick={handleDelete}>Delete</button>
+      <button className="delete-button" onClick={handleDelete}>Delete Employee</button>
       {error && <p>{error}</p>}
     </div>
   );

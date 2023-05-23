@@ -28,7 +28,11 @@ const initialState = {
       case 'EDIT_TASK':
         return { ...state, task: action.payload };
       case 'CREATE_TASK':
-        return { ...state, tasks: [...state.tasks, action.payload] };    
+        return { ...state, tasks: [...state.tasks, action.payload] };  
+      case 'DELETE_TASK':
+        return { ...state, tasks: state.tasks.filter(task => task.id !== action.payload) };
+ 
+         
       // Add more cases here 
       default:
         return state;

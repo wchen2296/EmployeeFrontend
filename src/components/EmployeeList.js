@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { fetchEmployees } from '../redux/actions';
 import Employee from './Employee';
 import DeleteEmployee from './DeleteEmployee';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import './ListStyle.css';
+import { Button } from '@mui/material';
 
 const EmployeeList = ({ dispatch, employees }) => {
   useEffect(() => {
@@ -18,7 +19,10 @@ const EmployeeList = ({ dispatch, employees }) => {
 
   return (
     <div className="list-container">
-      <h1 className="list-title">Employees</h1>
+      <h1 className="list-title">Employees: {employees.length} </h1>
+      <Button color="inherit" component={Link} to="/employees/new">
+          Create Employee
+        </Button>
       <div className="list-grid">
         {employees.map((employee) => (
           <div key={employee.id} className="list-item">

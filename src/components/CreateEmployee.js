@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createEmployee } from '../redux/actions';
+import './CreateStyle.css'
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
@@ -18,31 +21,51 @@ const CreateEmployee = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-        placeholder="First Name"
-        required
-      />
-      <input
-        type="text"
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-        placeholder="Last Name"
-        required
-      />
-      <input
-        type="text"
-        value={department}
-        onChange={e => setDepartment(e.target.value)}
-        placeholder="Department"
-        required
-      />
-      <button type="submit">Create Employee</button>
+    
+    <form className="form-container" onSubmit={handleSubmit}>
+       
+      <div className="form-group">
+        <label className="label">First Name:</label>
+        <input
+          type="text"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+          className="input"
+          placeholder="First Name"
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label className="label">Last Name:</label>
+        <input
+          type="text"
+          value={lastName}
+          onChange={e => setLastName(e.target.value)}
+          className="input"
+          placeholder="Last Name"
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label className="label">Department:</label>
+        <input
+          type="text"
+          value={department}
+          onChange={e => setDepartment(e.target.value)}
+          className="input"
+          placeholder="Department"
+          required
+        />
+      </div>
+      <button type="submit" className="button">Create Employee</button>
+      <Button className='back-btn' component={Link} to="/employees">
+          Back
+     </Button>
     </form>
+   
+   
   );
 };
+
 
 export default CreateEmployee;

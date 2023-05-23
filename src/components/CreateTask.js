@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTask } from '../redux/actions';
+import './CreateStyle.css'
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const CreateTask = () => {
   const dispatch = useDispatch();
@@ -21,26 +24,56 @@ const CreateTask = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Description:
-        <input type="text" name="description" value={formValues.description} onChange={handleChange} />
-      </label>
-      <label>
-        Priority Level:
-        <input type="text" name="priorityLevel" value={formValues.priorityLevel} onChange={handleChange} />
-      </label>
-      <label>
-        Completion Status:
-        <input type="checkbox" name="completionStatus" checked={formValues.completionStatus} onChange={handleChange} />
-      </label>
-      <label>
-        Employee ID:
-        <input type="number" name="employeeId" value={formValues.employeeId} onChange={handleChange} />
-      </label>
-      <button type="submit">Create Task</button>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label className="label">Description:</label>
+        <input
+          type="text"
+          name="description"
+          value={formValues.description}
+          onChange={handleChange}
+          className="input"
+        />
+      </div>
+      <div className="form-group">
+        <label className="label">Priority Level:</label>
+        <input
+          type="text"
+          name="priorityLevel"
+          value={formValues.priorityLevel}
+          onChange={handleChange}
+          className="input"
+        />
+      </div>
+      <div className="form-group">
+        <label className="checkbox-label">
+          Completion Status:
+          <input
+            type="checkbox"
+            name="completionStatus"
+            checked={formValues.completionStatus}
+            onChange={handleChange}
+            className="checkbox"
+          />
+        </label>
+      </div>
+      <div className="form-group">
+        <label className="label">Employee ID:</label>
+        <input
+          type="number"
+          name="employeeId"
+          value={formValues.employeeId}
+          onChange={handleChange}
+          className="input"
+        />
+      </div>
+      <button type="submit" className="button">Create Task</button>
+      <Button className='back-btn' component={Link} to="/tasks">
+          Back
+        </Button>
     </form>
   );
 };
+
 
 export default CreateTask;

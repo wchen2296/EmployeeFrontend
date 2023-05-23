@@ -146,5 +146,24 @@ export function deleteEmployee(id) {
     };
   }
   
+  //delete task
+export function deleteTask(id) {
+  return async dispatch => {
+    try {
+      const response = await fetch(`http://localhost:3001/tasks/${id}`, {
+        method: 'DELETE',
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Delete request failed with status code ${response.status}`);
+      }
+
+      dispatch({ type: 'DELETE_TASK', payload: id });
+    } catch (error) {
+      throw error;
+    }
+  };
+}
+
   
   
