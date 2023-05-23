@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTasks } from '../redux/actions'; // Import the action
+import { Link } from 'react-router-dom';
+import './ListStyle.css';
 
 const TaskList = () => {
   const dispatch = useDispatch();
@@ -15,14 +17,16 @@ const TaskList = () => {
   }
 
   return (
-    <div>
-      <h1>Tasks</h1>
+    <div className="list-container">
+      <h1 className="list-title">Tasks</h1>
       {tasks.map(task => (
-        <div key={task.id}>
+        <div key={task.id} className="list-item">
           <h2>{task.description}</h2>
           <p>Priority Level: {task.priorityLevel}</p>
           <p>Completion Status: {task.completionStatus ? "Completed" : "Not Completed"}</p>
-          {/* Add a link to the task's details page */}
+          
+          <Link to={`/tasks/${task.id}`}><button className='details-button'>View Details</button></Link>
+          
         </div>
       ))}
     </div>

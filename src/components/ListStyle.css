@@ -1,0 +1,96 @@
+/* ListStyle.css */
+
+.list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em;
+    font-family: Arial, sans-serif;
+  }
+  
+  .list-title {
+    text-align: center;
+    color: #444;
+    margin-bottom: 1em;
+  }
+  
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1em;
+  }
+  
+  .list-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 1em;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .list-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .list-item h2 {
+    margin: 0;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+  
+  .list-item p {
+    margin: 0.5em 0;
+  }
+  
+  .list-item a {
+    display: inline-block;
+    margin-top: 1em;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .list-item a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  .details-button {
+    background-color: #4e78c1; 
+    border: none;
+    color: #ffffff;
+    padding: 12px 24px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .details-button:hover {
+    background-color: #387fea;
+  }
+  
+  .delete-button {
+    background-color: #ed4747; 
+    border: none;
+    color: #ffffff;
+    padding: 12px 24px;
+    margin: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete-button:hover {
+    background-color: #c90303;
+  }
