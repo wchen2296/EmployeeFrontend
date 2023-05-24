@@ -7,9 +7,7 @@ import EmployeeList from './components/EmployeeList';
 import EmployeeDetails from './components/EmployeeDetails';
 import TaskDetails from './components/TaskDetails';
 import CreateEmployee from './components/CreateEmployee';
-import EditEmployeeForm from './components/EditEmployeeForm';
 import CreateTask from './components/CreateTask';
-import EditTask from './components/EditTask';
 import Navigation from './components/Navigation';
 import TaskList from './components/TaskList';
 
@@ -23,11 +21,9 @@ const App = () => {
           <Routes>
             <Route path="/employees" element={<EmployeeList />} />
             <Route path="/employees/new" element={<CreateEmployee />} />
-            <Route path="/employees/edit/:id" element={<EditEmployeeForm />} />
             <Route path="/employees/:employeeId" element={<EmployeeDetails />} />
             <Route path='/tasks' element={<TaskList/>}/>
             <Route path="/tasks/new" element={<CreateTask />} />
-            <Route path="/tasks/edit/:id" element={<EditTask />} />
             <Route path="/tasks/:id" element={<TaskDetails />} />
             
           </Routes>

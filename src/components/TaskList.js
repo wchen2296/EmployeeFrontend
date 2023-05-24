@@ -21,7 +21,7 @@ const TaskList = () => {
   return (
     <div className="list-container">
       <h1 className="list-title">Tasks: {tasks.length}</h1>
-      <Button color="inherit" component={Link} to="/tasks/new">
+      <Button color="primary" variant='contained' component={Link} to="/tasks/new">
           Create Task
         </Button>
       {tasks.map(task => (
@@ -30,7 +30,7 @@ const TaskList = () => {
           <p>Task ID: {task.id}</p>
           <p>Priority Level: {task.priorityLevel}</p>
           <p>Completion Status: {task.completionStatus ? "Completed" : "Not Completed"}</p>
-          
+         
           <Link to={`/tasks/${task.id}`}><button className='details-button'>View Details</button></Link>
           <DeleteTask id={task.id}/>
           

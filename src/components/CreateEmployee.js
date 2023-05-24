@@ -1,9 +1,8 @@
-// CreateEmployee.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createEmployee } from '../redux/actions';
-import './CreateStyle.css'
-import { Button } from '@mui/material';
+import './CreateStyle.css';
+import { Button, Snackbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const CreateEmployee = () => {
@@ -11,6 +10,7 @@ const CreateEmployee = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [department, setDepartment] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,12 +18,15 @@ const CreateEmployee = () => {
     setFirstName('');
     setLastName('');
     setDepartment('');
+    setSuccessMessage('Employee created successfully!');
+  };
+
+  const handleSnackbarClose = () => {
+    setSuccessMessage('');
   };
 
   return (
-    
     <form className="form-container" onSubmit={handleSubmit}>
-       
       <div className="form-group">
         <label className="label">First Name:</label>
         <input
@@ -57,15 +60,20 @@ const CreateEmployee = () => {
           required
         />
       </div>
-      <button type="submit" className="button">Create Employee</button>
+      <button type="submit" className="button">
+        Create Employee
+      </button>
       <Button className='back-btn' component={Link} to="/employees">
-          Back
-     </Button>
+        Back
+      </Button>
+      <Snackbar
+        open={!!successMessage}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message={successMessage}
+      />
     </form>
-   
-   
   );
 };
-
 
 export default CreateEmployee;

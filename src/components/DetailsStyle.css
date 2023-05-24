@@ -1,67 +1,104 @@
 .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-  }
-  
-  .card {
-    background: #fff;
-    border-radius: 2px;
-    display: inline;
-    margin: 1rem;
-    height: 60%;
-    width: 70%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  }
-  
-  .card-content {
-    padding: 30px;
-  }
-  
-  .card-title {
-    color: #333;
-    font-size: 1.5em;
-  }
-  
-  .card-text {
-    color: #666;
-    font-size: 1.2em;
-  }
-  
-  .card-subtitle {
-    color: #333;
-    font-size: 1.3em;
-    margin-top: 20px;
-  }
-  
-  .card-task-list {
-    margin-top: 10px;
-  }
-  
-  .card-task {
-    color: #666;
-    font-size: 1em;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  .back-btn {
-    background-color: #4e78c1; 
-    border: none;
-    color: #ffffff;
-    padding: 12px 24px;
-    margin: 3px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .back-btn:hover {
-    background-color: #387fea;
-  }
-  
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline;
+  margin: 1rem;
+  width: 70%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-content {
+  padding: 30px;
+}
+
+.card-title {
+  color: #333;
+  font-size: 1.5em;
+}
+
+.card-text {
+  color: #666;
+  font-size: 1.2em;
+}
+
+.card-subtitle {
+  color: #333;
+  font-size: 1.3em;
+  margin-top: 20px;
+}
+
+.card-task-list {
+  margin-top: 10px;
+}
+
+.card-task {
+  color: #666;
+  font-size: 1em;
+}
+
+.back-btn {
+  background-color: #4e78c1;
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  margin: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #387fea;
+}
+
+.edit-btn {
+  background-color: #4e78c1;
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  margin: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #387fea;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  margin: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
