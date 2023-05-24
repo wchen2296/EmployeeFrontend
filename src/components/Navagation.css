@@ -1,0 +1,19 @@
+.nav-title {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+  }
+  .nav-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-title {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+  

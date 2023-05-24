@@ -125,13 +125,13 @@ const TaskDetails = () => {
           ) : (
             <div className="card-header">
               <h2 className="card-title">{task.description}</h2>
-              <p className="card-text">Priority Level: {task.priorityLevel}</p>
-              <p className="card-text">
+              <p className="card-subtitle">Priority Level: {task.priorityLevel}</p>
+              <p className="card-subtitle">
                 Completion Status: {task.completionStatus ? 'Completed' : 'Not Completed'}
               </p>
               {task.employeeId ? (
                 <div>
-                  <p className="card-text">
+                  <p className="card-subtitle">
                     Assigned Employee: {task.employee.firstName} {task.employee.lastName}
                   </p>
                   <Button className="employee-details-btn" component={RouterLink} to={`/employees/${task.employeeId}`} variant="contained" color="primary">
@@ -139,7 +139,7 @@ const TaskDetails = () => {
                   </Button>
                 </div>
               ) : (
-                <p className="card-text">No employee assigned</p>
+                <p className="card-subtitle">No employee assigned</p>
               )}
             </div>
           )}
