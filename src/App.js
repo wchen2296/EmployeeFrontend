@@ -10,6 +10,7 @@ import CreateEmployee from './components/CreateEmployee';
 import CreateTask from './components/CreateTask';
 import Navigation from './components/Navigation';
 import TaskList from './components/TaskList';
+import Home from './components/Home';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <div>
           <Navigation />
           <Routes>
+            <Route path='/' element={<Home/>}/>
             <Route path="/employees" element={<EmployeeList />} />
             <Route path="/employees/new" element={<CreateEmployee />} />
             <Route path="/employees/:employeeId" element={<EmployeeDetails />} />

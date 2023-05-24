@@ -1,10 +1,9 @@
-// EmployeeList.js
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchEmployees } from '../redux/actions';
 import Employee from './Employee';
 import DeleteEmployee from './DeleteEmployee';
-import { Link  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ListStyle.css';
 import { Button } from '@mui/material';
 
@@ -13,16 +12,12 @@ const EmployeeList = ({ dispatch, employees }) => {
     dispatch(fetchEmployees());
   }, [dispatch]);
 
-  if (!employees || employees.length === 0) {
-    return <p>No employees exist</p>;
-  }
-
   return (
     <div className="list-container">
-      <h1 className="list-title">Employees: {employees.length} </h1>
-      <Button color="primary" variant='contained' component={Link} to="/employees/new">
-          Create Employee
-        </Button>
+      <h1 className="list-title">Employees: {employees.length}</h1>
+      <Button color="primary" variant="contained" component={Link} to="/employees/new">
+        Create Employee
+      </Button>
       <div className="list-grid">
         {employees.map((employee) => (
           <div key={employee.id} className="list-item">
@@ -40,7 +35,7 @@ const EmployeeList = ({ dispatch, employees }) => {
 
 const mapStateToProps = (state) => {
   return {
-    employees: state.employees,
+    employees: state.employees || [],
   };
 };
 

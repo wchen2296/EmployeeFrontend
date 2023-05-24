@@ -167,7 +167,7 @@ const EmployeeDetails = () => {
                   <div className='card-task-list'>
                     <h2 className='card-subtitle'>Tasks:</h2>
                     {employee.tasks.map((task) => (
-                      <div key={task.id} className='card-task'>
+                      <div key={task.id} className='card-subtitle'>
                         <p className="task-name">{task.description}</p>
                         <Button
                           className="unassign-btn"
