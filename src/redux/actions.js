@@ -83,6 +83,57 @@ export function deleteEmployee(id) {
   };
 }
 
+// assign task
+export const assignTask = (employeeId, taskId) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:3001/${employeeId}/task/${taskId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+
+      const task = await response.json();
+
+      dispatch({ type: 'ASSIGN_TASK', payload: task });
+    } catch (error) {
+      console.error('Failed to assign task:', error);
+    }
+  };
+};
+// actions.js
+
+// unassign a task from an employee
+export const unassignTask = (employeeId, taskId) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:3001/employees/${employeeId}/task/${taskId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ employeeId: null })
+      });
+  
+      if (!response.ok) {
+        throw new Error('HTTP error ' + response.status);
+      }
+  
+      const task = await response.json();
+      
+      dispatch({ type: 'UNASSIGN_TASK', payload: task });
+    } catch (error) {
+      console.error('Failed to unassign task:', error);
+    }
+  };
+};
+
+
   
   //fetch all tasks
   export const fetchTasks = () => {
@@ -109,42 +160,55 @@ export function deleteEmployee(id) {
       }
     };
   }
-//update task
-  export function editTask(id, task) {
+  export const updateTask = (updatedTask) => {
     return async (dispatch) => {
       try {
-        const response = await fetch(`http://localhost:3001/tasks/${id}`, {
+        const response = await fetch(`http://localhost:3001/tasks/${updatedTask.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(task),
+          body: JSON.stringify(updatedTask),
         });
+  
+        if (!response.ok) {
+          throw new Error('HTTP error ' + response.status);
+        }
+  
         const data = await response.json();
-        dispatch({ type: 'EDIT_TASK', payload: data });
+        dispatch({ type: 'UPDATE_TASK', payload: data });
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Failed to update task:', error);
       }
     };
-  }
+  };
+  
+
   //create task
-  export function createTask(task) {
+  export const createTask = (taskData) => {
     return async (dispatch) => {
-      try {
-        const response = await fetch(`http://localhost:3001/tasks`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(task),
+        const response = await fetch('http://localhost:3001/tasks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(taskData)
         });
+
         const data = await response.json();
-        dispatch({ type: 'CREATE_TASK', payload: data });
-      } catch (error) {
-        console.error('Error:', error);
-      }
+
+        if (response.ok) {
+            dispatch({
+                type: 'CREATE_TASK',
+                payload: data
+            });
+            return data;
+        } else {
+            throw new Error('Failed to create task.');
+        }
     };
-  }
+};
+
   
   //delete task
 export function deleteTask(id) {
@@ -163,7 +227,23 @@ export function deleteTask(id) {
       throw error;
     }
   };
+
+  
 }
+
+//fetch unassigned tasks
+export const fetchUnassignedTasks = () => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch('http://localhost:3001/tasks/unassigned');
+      const data = await response.json();
+      dispatch({ type: 'FETCH_UNASSIGNED_TASKS', payload: data });
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+};
+
 
   
   

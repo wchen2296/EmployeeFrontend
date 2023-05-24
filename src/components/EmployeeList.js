@@ -20,7 +20,7 @@ const EmployeeList = ({ dispatch, employees }) => {
   return (
     <div className="list-container">
       <h1 className="list-title">Employees: {employees.length} </h1>
-      <Button color="inherit" component={Link} to="/employees/new">
+      <Button color="primary" variant='contained' component={Link} to="/employees/new">
           Create Employee
         </Button>
       <div className="list-grid">
