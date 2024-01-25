@@ -17,7 +17,9 @@ export const fetchEmployee = (id) => {
   return (dispatch) => {
     return fetch(`http://localhost:3001/employees/${id}`) 
       .then(response => response.json())
-      .then(employee => dispatch({ type: 'FETCH_EMPLOYEE_SUCCESS', payload: employee }));
+      .then(employee => dispatch({ 
+        type: 'FETCH_EMPLOYEE_SUCCESS', 
+        payload: employee }));
   };
 };
 
