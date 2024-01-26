@@ -22,8 +22,22 @@ Link to backend: https://github.com/wchen2296/EmployeeBackend
 - Navigation between the views of employees and tasks.
 
 ## Demo
-![App Screenshot](https://i.imgur.com/r6QFrbI.gif)
-![App Demo](https://i.imgur.com/UFokZ4L.gif)
+
+Homepage
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/homepage.png)
+
+Creating Employees and Tasks
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/create_employee.png)
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/create_task.png)
+
+Viewing Employee/Task List
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/employees.png)
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/tasks.png)
+
+Viewing Employee/Task details
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/employee_details.png)
+![alt](https://github.com/wchen2296/EmployeeFrontend/blob/7ac6b3e6f4e20b11ebc0fdbf1dc39165298fb5a0/assets/task_details.png)
+
 
 
 ## Installation
